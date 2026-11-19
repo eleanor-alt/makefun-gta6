@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Palmira Heat — an open-world crime game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- The heads-up display -->
+<div id="hud">
+  <div id="hud-top-left">
+    <div id="hud-money">$0</div>
+    <div id="hud-stars">☆☆☆☆☆</div>
+  </div>
+  <div id="hud-objective">
+    <div id="hud-obj-text"></div>
+    <div id="hud-obj-row"><span id="hud-obj-sub"></span><span id="hud-obj-timer"></span></div>
+  </div>
+  <div id="hud-passenger">NILS IS IN — DRIVE!</div>
+  <canvas id="minimap" width="196" height="148"></canvas>
+  <div id="hud-bottom-right">
+    <div id="hud-speed"></div>
+    <div id="hud-weapon"></div>
+    <div id="hud-health"><div id="hud-health-fill"></div><span id="hud-health-text">100</span></div>
+  </div>
+  <div id="hud-bust"><div id="hud-bust-label">BUSTED</div><div id="hud-bust-track"><div id="hud-bust-fill"></div></div></div>
+  <div id="hud-toast"></div>
+  <div id="hud-hint">WASD move · F enter car · mouse aim, click shoot · Shift sprint · Space handbrake · Esc pause · M mute</div>
+</div>
+
+<!-- Story dialog -->
+<div id="dialog">
+  <div id="dialog-name">Dee</div>
+  <div id="dialog-text"></div>
+  <div id="dialog-hint">click or press E ▸</div>
+</div>
+
+<!-- Start screen -->
+<div id="start-screen" class="screen">
+  <div class="panel">
+    <div class="kicker">Palmira Bay PD wishes you a pleasant stay</div>
+    <h1>PALMIRA <span>HEAT</span></h1>
+    <p class="tagline">An open-world crime game in a sun-soaked bay city. Steal the cars, run the
+    jobs, dodge the law — and be back at Dee's Diner before the coffee gets cold.</p>
+    <p class="story">Marlo Reyes used to be the best wheelman on the coast. One diner, one old
+    friend, and four jobs stand between Marlo and a quiet life.</p>
+    <div class="buttons">
+      <button id="btn-new" class="primary">New game</button>
+      <button id="btn-continue">Continue</button>
+      <button id="btn-help">How to play</button>
+      <button id="btn-mute">Sound: on</button>
+    </div>
+    <div class="fineprint">Keyboard and mouse. Your progress saves at the diner and after every job.</div>
+  </div>
+</div>
+
+<!-- Help -->
+<div id="help-screen" class="screen">
+  <div class="panel">
+    <h2>How to play</h2>
+    <table id="controls-table">
+      <tr><td>W A S D / arrows</td><td>Walk, or drive the car you're in</td></tr>
+      <tr><td>Mouse</td><td>Aim the Kestrel 9mm</td></tr>
+      <tr><td>Click / hold</td><td>Shoot</td></tr>
+      <tr><td>R</td><td>Reload</td></tr>
+      <tr><td>F or E</td><td>Steal / enter a car, get out again</td></tr>
+      <tr><td>Shift</td><td>Sprint on foot</td></tr>
+      <tr><td>Space</td><td>Handbrake — swing the back end out</td></tr>
+      <tr><td>E at the diner door</td><td>Save the game and top up your health</td></tr>
+      <tr><td>Esc or P</td><td>Pause</td></tr>
+      <tr><td>M</td><td>Mute</td></tr>
+    </table>
+    <p>The gold beacon is your next job — Dee hands them out at her diner. Stars mean the
+    Palmira PD is interested; break their line of sight and stay quiet to cool off. If they
+    pin you down on foot, the bust meter fills. Wreck their day, not your car: a dead car
+    with a job in it is a failed job.</p>
+    <div class="buttons"><button id="btn-help-close" class="primary">Back</button></div>
+  </div>
+</div>
+
+<!-- Pause -->
+<div id="pause-screen" class="screen">
+  <div class="panel">
+    <h2>Paused</h2>
+    <div class="buttons">
+      <button id="btn-resume" class="primary">Resume</button>
+      <button id="btn-save">Save game</button>
+      <button id="btn-mute-2">Sound: on</button>
+      <button id="btn-quit">Quit to title</button>
+    </div>
+  </div>
+</div>
+
+<!-- Busted / wasted -->
+<div id="over-screen">
+  <div id="over-title">WASTED</div>
+  <div id="over-text"></div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
